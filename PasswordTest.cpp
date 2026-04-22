@@ -14,29 +14,16 @@ protected:
 	virtual void TearDown() {} // clean up after each test, (before destructor)
 };
 
-// TEST(PasswordTest, single_letter_password)
-// {
-// 	Password pwd;
-// 	ASSERT_EQ(1, pwd.count_leading_characters("Z"));
-// }
-
-// TEST(PasswordTest, multiple_letter_password)
-// {
-// 	Password pwd;
-// 	ASSERT_EQ(2, pwd.count_leading_characters("ZZz"));
-// }
-
-// TEST(PasswordTest, multiple_letter_password_no_leading_characters)
-// {
-// 	Password pwd;
-// 	ASSERT_EQ(0, pwd.count_leading_characters("zZZ"));
-// }
-
-// TEST(PasswordTest, empty_password)
-// {
-// 	Password pwd;
-// 	ASSERT_EQ(0, pwd.count_leading_characters(""));
-// }
+TEST(PasswordTest, count_leading_characters)
+{
+	Password pwd;
+	EXPECT_EQ(1, pwd.count_leading_characters("Z"));
+	EXPECT_EQ(2, pwd.count_leading_characters("ZZz"));
+	EXPECT_EQ(4, pwd.count_leading_characters("aaaa"));
+	EXPECT_EQ(1, pwd.count_leading_characters("zZZ"));
+	EXPECT_EQ(3, pwd.count_leading_characters("!!!abc"));
+	EXPECT_EQ(1, pwd.count_leading_characters("Zz"));
+}
 
 TEST(PasswordTest, has_mixed_case)
 {
